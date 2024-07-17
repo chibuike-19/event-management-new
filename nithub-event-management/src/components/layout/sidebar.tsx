@@ -1,0 +1,54 @@
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context/auth-service";
+import { adminData, clientData } from "../../data-helpers/sidebar-data";
+import { useEffect, useState } from "react";
+
+export const Sidebar = () => {
+  const { userData } = useAuth();
+  const [openSideMenu, setOpenSideMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 1026);
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <div
+      data-aos="fade-right"
+      data-aos-easing="ease-in"
+      data-aos-duration="1000"
+      className="h-full w-[120px] mx-5 flex flex-col items-center fixed"
+    >
+      <ul className="list-none rounded-3xl px-3 py-8 flex flex-col bg-gray-100 items-center gap-4 text-center justify-start ">
+        {userData.role === "admin"
+          ? adminData.map((item, inx) => (
+              <Link
+                to={item.link}
+                key={inx}
+                className="flex justify-center flex-col cursor-pointer gap-2 items-center"
+              >
+                <div className="bg-[#EDEDED] rounded-full h-10 w-10 flex justify-center items-center transition-all hover:bg-[#e0dede]">
+                  {item.icon}
+                </div>
+                <p className="text-[14px]">{item.label}</p>
+              </Link>
+            ))
+          : clientData.map((item, indx) => (
+              <Link to={item.link} key={indx}>
+                {item.icon}
+                <p>{item.label}</p>
+              </Link>
+            ))}
+      </ul>
+    </div>
+  );
+};
