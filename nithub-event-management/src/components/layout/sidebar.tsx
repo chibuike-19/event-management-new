@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/auth-service";
 import { adminData, clientData } from "../../data-helpers/sidebar-data";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const Sidebar = () => {
   const { userData } = useAuth();
   const [openSideMenu, setOpenSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentMenu, setCurrentMenu] = useState<null | string>(null)
+
   
   const handleResize = () => {
     setIsMobile(window.innerWidth < 1026);
@@ -20,6 +24,8 @@ export const Sidebar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  let route = useLocation()
 
   return (
     <div
@@ -36,16 +42,27 @@ export const Sidebar = () => {
                 key={inx}
                 className="flex justify-center flex-col cursor-pointer gap-2 items-center"
               >
-                <div className="bg-[#EDEDED] rounded-full h-10 w-10 flex justify-center items-center transition-all hover:bg-[#e0dede]">
+                <div
+                  id={route.pathname === item.link ? "active" : ""}
+                  className="bg-[#EDEDED] rounded-full h-10 w-10 flex justify-center items-center transition-all hover:bg-[#e0dede]"
+                >
                   {item.icon}
                 </div>
                 <p className="text-[14px]">{item.label}</p>
               </Link>
             ))
           : clientData.map((item, indx) => (
-              <Link to={item.link} key={indx}>
-                {item.icon}
-                <p>{item.label}</p>
+              <Link
+                to={item.link}
+                key={indx}
+              >
+                <div
+                  id={route.pathname === item.link ? "active" : ""}
+                  className="bg-[#EDEDED] rounded-full h-10 w-10 flex justify-center items-center transition-all hover:bg-[#e0dede]"
+                >
+                  {item.icon}
+                </div>
+                <p className="text-[14px]">{item.label}</p>
               </Link>
             ))}
       </ul>

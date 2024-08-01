@@ -11,3 +11,7 @@
 .inactive {
     opacity: 0.4;
 }
+
+#active {
+    background-color: #e0dede;
+}
