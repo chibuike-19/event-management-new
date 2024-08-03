@@ -1,18 +1,31 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { ValueProp } from "./types/auth-service-types";
 
-const AuthContext = createContext({} as ValueProp);
+export const AuthContext = createContext({} as ValueProp);
 
 const AuthService = ({ children }: { children: ReactNode }) => {
-  const [userData, setUserData] = useState<{role: "admin" | "client"}>({ role: "admin" });
+  const [userData, setUserData] = useState<{ role: "admin" | "client" } | null>(
+    null
+  );
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+
+  const Logout = () => {
+    setIsAuthenticated(false);
+    setUserData(null);
+  };
+
+  const Login = (data: any) => {
+    setIsAuthenticated(true);
+    setUserData(data);
+  };
 
   return (
-    <AuthContext.Provider value={{ userData }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ userData, Logout, Login, isAuthenticated }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
-export default AuthService
+export default AuthService;
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+

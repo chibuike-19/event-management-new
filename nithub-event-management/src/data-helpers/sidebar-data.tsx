@@ -27,8 +27,8 @@ export const adminData = [
 
 export const clientData = [
   { label: "Home", icon: <HomeIcon />, value: "home", link: "/" },
-  { label: "Events", icon: <EventsIcon />, value: "events", link: "/" },
-  { label: "Wallet", icon: <TransactionsIcons />, value: "wallet", link: "/" },
-  { label: "Settings", icon: <Settings />, value: "settings", link: "/" },
-  { label: "Logout", icon: <LogoutIcon />, value: "logout", link: "/" },
+  { label: "Events", icon: <EventsIcon />, value: "events", link: "/events" },
+  { label: "Wallet", icon: <TransactionsIcons />, value: "wallet", link: "/client-wallet" },
+  { label: "Settings", icon: <Settings />, value: "settings", link: "/settings" },
+  { label: "Logout", icon: <LogoutIcon />, value: "logout", link: "/logout" },
 ];

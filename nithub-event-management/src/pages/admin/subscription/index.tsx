@@ -71,7 +71,7 @@ export const Subscriptions = () => {
             <div className="border-2 px-8 py-6 border-[#eeebeb] rounded-lg h-full">
               <h4>Create Subcription Plan</h4>
               <form action="" className="mt-4">
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-2">
                   <label htmlFor="">Plan Name</label>
                   <input
                     type="text"
@@ -81,7 +81,7 @@ export const Subscriptions = () => {
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-3 mt-4">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col gap-2">
                     <label htmlFor="">Plan Name</label>
                     <input
                       type="text"
@@ -90,7 +90,7 @@ export const Subscriptions = () => {
                       id=""
                     />
                   </div>
-                  <div className="flex flex-col ">
+                  <div className="flex flex-col gap-2">
                     <label htmlFor="">Plan Name</label>
                     <input
                       type="text"
@@ -100,7 +100,7 @@ export const Subscriptions = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col mt-4">
+                <div className="flex flex-col mt-4 gap-2">
                   <label htmlFor="">Plan Features</label>
                   <textarea
                     name=""

@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/auth-service";
 import { adminData, clientData } from "../../data-helpers/sidebar-data";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { AuthContext } from "../../context/auth-service";
 
 export const Sidebar = () => {
-  const { userData } = useAuth();
+  const { userData } = useContext(AuthContext);
   const [openSideMenu, setOpenSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [currentMenu, setCurrentMenu] = useState<null | string>(null)
+  const [currentMenu, setCurrentMenu] = useState<null | string>(null);
 
-  
   const handleResize = () => {
     setIsMobile(window.innerWidth < 1026);
   };
@@ -25,7 +24,7 @@ export const Sidebar = () => {
     };
   }, []);
 
-  let route = useLocation()
+  let route = useLocation();
 
   return (
     <div
@@ -35,7 +34,7 @@ export const Sidebar = () => {
       className="h-full w-[120px] mx-5 flex flex-col items-center fixed"
     >
       <ul className="list-none rounded-3xl px-3 py-8 flex flex-col bg-gray-100 items-center gap-4 text-center justify-start ">
-        {userData.role === "admin"
+        {userData && userData.role === "admin"
           ? adminData.map((item, inx) => (
               <Link
                 to={item.link}
@@ -52,12 +51,10 @@ export const Sidebar = () => {
               </Link>
             ))
           : clientData.map((item, indx) => (
-              <Link
-                to={item.link}
-                key={indx}
-              >
+              <Link to={item.link} key={indx}>
                 <div
                   id={route.pathname === item.link ? "active" : ""}
+                  style={{marginTop: item.label === "Settings" ? "80px" : ""}}
                   className="bg-[#EDEDED] rounded-full h-10 w-10 flex justify-center items-center transition-all hover:bg-[#e0dede]"
                 >
                   {item.icon}
