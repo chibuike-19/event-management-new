@@ -15,7 +15,7 @@ type RouteProps = {
 
 export const routes: RouteProps[] = [
   // The AUTH routes starts
-  { path: "/", element: <AdminHome /> },
+  { path: "/admin-dashboard", element: <AdminHome /> },
   { path: "/clients-list", element: <ClientsList /> },
   { path: "/transactions", element: <Transactions /> },
   { path: "/subscriptions", element: <Subscriptions /> },

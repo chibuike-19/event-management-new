@@ -2,7 +2,7 @@ import { ClientIconInactive, EventsIcon, HomeIcon, LogoutIcon, Settings, Subscri
 
 
 export const adminData = [
-  { label: "Home", icon: <HomeIcon />, value: "home", link: "/" },
+  { label: "Home", icon: <HomeIcon />, value: "home", link: "/admin-dashboard" },
   {
     label: "Clients",
     icon: <ClientIconInactive />,
@@ -26,7 +26,7 @@ export const adminData = [
 ];
 
 export const clientData = [
-  { label: "Home", icon: <HomeIcon />, value: "home", link: "/" },
+  { label: "Home", icon: <HomeIcon />, value: "home", link: "/client-dashboard" },
   { label: "Events", icon: <EventsIcon />, value: "events", link: "/events" },
   { label: "Wallet", icon: <TransactionsIcons />, value: "wallet", link: "/client-wallet" },
   { label: "Settings", icon: <Settings />, value: "settings", link: "/settings" },
