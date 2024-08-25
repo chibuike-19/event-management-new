@@ -7,6 +7,7 @@ import { Login } from "../pages/auth/login";
 import { Settings } from "../pages/client/settings";
 import { ClientWallet } from "../pages/client/wallet";
 import { Events } from "../pages/client/events";
+import { ClientHome } from "../pages/client";
 
 type RouteProps = {
   path: string;
@@ -16,6 +17,7 @@ type RouteProps = {
 export const routes: RouteProps[] = [
   // The AUTH routes starts
   { path: "/admin-dashboard", element: <AdminHome /> },
+  { path: "/client-dashboard", element: <ClientHome /> },
   { path: "/clients-list", element: <ClientsList /> },
   { path: "/transactions", element: <Transactions /> },
   { path: "/subscriptions", element: <Subscriptions /> },
