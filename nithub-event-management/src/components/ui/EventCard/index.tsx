@@ -74,7 +74,7 @@ function EventsCard({tag}: IEventsCard) {
               </li>
 
               <li className=" tablet_md:hidden">
-                <div className={` ${tag === "upcoming" ? "text-green" : "text-[#EE7450]"} border-2 ${tag === "upcoming" ? "bg-transparent" : "bg-[#FFBF9D]"} ${tag === "upcoming" ? "border-green" : "border-[#EE7450]"}  rounded-2xl text-center py-1 px-4  text-sm`}>
+                <div className={` ${tag === "Upcoming" ? "text-[#099137]" : "text-[#EE7450]"} border-2 ${tag === "Upcoming" ? "bg-[#F8FEFA]" : "bg-[#FFBF9D]"} ${tag === "Upcoming" ? "border-[#68C28A]" : "border-[#EE7450]"}  rounded-2xl text-center py-1 px-4  text-sm`}>
                   {tag}
                 </div>
               </li>
