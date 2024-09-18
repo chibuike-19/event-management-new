@@ -14,6 +14,19 @@ export const Settings = () => {
     setActiveTab(tabName);
   };
 
+  const profileData = {
+    Profile: {
+      profilePic: '',
+      fullname: 'David Ogunbiyi',
+      email: 'ogunbs@gmail.com',
+      phoneno: '0903455347'
+    },
+    Role: {
+      role: 'Admin',
+      locaiton: 'Alausa Ikeja Lagos, Nigeria',
+      Date_joined: '13th May, 2024'
+    }
+  }
 
   const billingData = [
     {
@@ -50,7 +63,7 @@ export const Settings = () => {
     },
   ];
 
-  const columns = [
+  const Billingcolumns = [
     {
       title: "Invoice #",
       dataIndex: "invoice",
@@ -109,6 +122,62 @@ export const Settings = () => {
               style={{ color: activeTab === "Billings" ? "black" : "#868686", fontWeight: activeTab === "Billings" ? "bold" : "300", borderBottomColor: activeTab === "Billings" ? "#099137" : "white" }}
             >
               Billings
+            </div>
+          </div>
+
+          {/* Profile Tab */}
+          <div
+            id="Profile"
+            className="city-content"
+            style={{ display: activeTab === "Profile" ? "block" : "none" }}
+          >
+            <div className="flex flex-col gap-8">
+              <div>
+                <h1 className="font-bold bg-[#F2F2F2] rounded-t-2xl px-5 py-3">Personal Details</h1>
+                <div>
+                  <div className="flex flex-row justify-between items-center px-5 py-3 border-[#EDEDED] border">
+                    <h3 className="">Profile photo</h3>
+                    {profileData.Profile.profilePic ? "1" : <div className="rounded-full px-3 py-2 bg-[#F2F2F2] font-bold">{profileData.Profile.fullname[0]}</div>}
+                    <button className=" underline cursor-pointer text-[11px]">Edit</button>
+                  </div>
+                  <div className="flex flex-row justify-between items-center text-left px-5 py-3 border-[#EDEDED] border">
+                    <h3 className="">Full name</h3>
+                    <h3>{profileData.Profile.fullname}</h3>
+                    <button className=" underline cursor-pointer text-[11px]">Edit</button>
+                  </div>
+                  <div className="flex flex-row justify-between items-center text-left px-5 py-3 border-[#EDEDED] border">
+                    <h3 className="">Email address</h3>
+                    <h3>{profileData.Profile.email}</h3>
+                    <button className=" underline cursor-pointer text-[11px]">Edit</button>
+                  </div>
+                  <div className="flex flex-row justify-between items-center text-left px-5 py-3 border-[#EDEDED] border rounded-b-2xl">
+                    <h3 className="">Phone number</h3>
+                    <h3 className="flex flex-row justify-start">{profileData.Profile.phoneno}</h3>
+                    <button className=" underline cursor-pointer text-[11px]">Edit</button>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h1 className="font-bold bg-[#F2F2F2] rounded-t-2xl px-5 py-3">Role Details</h1>
+                <div>
+                  <div className="flex flex-row justify-between items-center px-5 py-3 border-[#EDEDED] border">
+                    <h3 className="">Role</h3>
+                    <div>{profileData.Role.role}</div>
+                    <button className=" underline cursor-pointer text-[11px]">Edit</button>
+                  </div>
+                  <div className="flex flex-row justify-between items-center px-5 py-3 border-[#EDEDED] border">
+                    <h3 className="">Location</h3>
+                    <div>{profileData.Role.locaiton}</div>
+                    <button className=" underline cursor-pointer text-[11px]">Edit</button>
+                  </div>
+                  <div className="flex flex-row justify-between items-center px-5 py-3 border-[#EDEDED] border rounded-b-2xl">
+                    <h3 className="">Date joined</h3>
+                    <div>{profileData.Role.Date_joined}</div>
+                    <button className=" underline cursor-pointer text-[11px]">Edit</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -182,7 +251,7 @@ export const Settings = () => {
 
             {/* Bank Information Section */}
             <section className="space-y-6">
-              <h2 className="text-xl font-semibold">Bank Information</h2>
+              <h2 className="text-xl font-semibold pt-4">Bank Information</h2>
               <div className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4 w-full md:w-2/3">
                   <div className="space-y-2">
@@ -230,7 +299,7 @@ export const Settings = () => {
 
             {/* Contact Email Section */}
             <section className="space-y-6">
-              <h2 className="text-xl font-semibold">Contact Email</h2>
+              <h2 className="text-xl font-semibold pt-4">Contact Email</h2>
               <div className="space-y-2">
                 <label className="block text-gray-600 text-sm font-bold">
                   Update your billing details and address
@@ -265,10 +334,10 @@ export const Settings = () => {
 
             {/* Billing History Section */}
             <section className="space-y-6 mb-6">
-              <h2 className="text-xl font-semibold">Billing History</h2>
+              <h2 className="text-xl font-semibold pt-4">Billing History</h2>
               <div className="overflow-x-auto">
                 <Table
-                  columns={columns}
+                  columns={Billingcolumns}
                   dataSource={billingData}
                   pagination={false}
                 />

@@ -149,7 +149,7 @@ export const ClientHome = () => {
                         <DataCard
                             name={card.name}
                             number={card.number}
-                            icon={<EventsData />}
+                            icon={card.icon}
                             color={card.color}
                             bg={card.bgColor}
                         />
