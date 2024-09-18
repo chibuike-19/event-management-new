@@ -8,6 +8,7 @@ import { Settings } from "../pages/client/settings";
 import { ClientWallet } from "../pages/client/wallet";
 import { Events } from "../pages/client/events";
 import { ClientHome } from "../pages/client";
+import { CreateEvent } from "../pages/client/events/new-event";
 
 type RouteProps = {
   path: string;
@@ -23,5 +24,6 @@ export const routes: RouteProps[] = [
   { path: "/subscriptions", element: <Subscriptions /> },
   { path: "/client-wallet", element: <ClientWallet /> },
   { path: "/settings", element: <Settings /> },
+  { path: "/events/create-event", element: <CreateEvent /> },
   { path: "/events", element: <Events /> },
 ];
