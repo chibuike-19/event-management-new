@@ -5,7 +5,7 @@ export const AuthContext = createContext({} as ValueProp);
 
 const AuthService = ({ children }: { children: ReactNode }) => {
   const [userData, setUserData] = useState<{ role: "admin" | "client" } | null>(
-  {role: "client"}
+  {role: "admin"}
   );
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
