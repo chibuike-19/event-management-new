@@ -1,4 +1,4 @@
-import { EventsData } from "../../assets/svg/sidebar/svg-export";
+import { ArrowDownIcon, EventsData } from "../../assets/svg/sidebar/svg-export";
 import Navbar from "../../components/layout/navbar";
 import { Sidebar } from "../../components/layout/sidebar";
 import DataCard from "../../components/ui/DateCard";
@@ -34,7 +34,7 @@ export const AdminHome = () => {
       new Date('26 Oct 2024 21:00 GMT'),
     ].map(timestamp => {
       const date = new Date(timestamp);
-      const hours = date.getUTCHours(); 
+      const hours = date.getUTCHours();
       const dayOfWeek = date.getUTCDay() || 7;
       return [hours, dayOfWeek];
     }),
@@ -111,9 +111,12 @@ export const AdminHome = () => {
 
           </div>
           <div className="w-1/2 rounded-2xl p-6 border-2 border-[#CACACA] bg-white">
-            <h2 className="text-2xl font-bold">Schedule</h2>
+            <div className="flex flex-row justify-between items-center">
+              <h2 className="text-2xl font-bold">Schedule</h2>
+              <button className="p-1 border font-bold flex flex-row rounded-lg">Weekly <span className="text-lg"><ArrowDownIcon/></span></button>
+            </div>
             <div>
-              <ScatterChart data={dataScatterChart}/>
+              <ScatterChart data={dataScatterChart} />
             </div>
           </div>
         </div>
