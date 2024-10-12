@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Navbar from "../../../components/layout/navbar"
 import { Sidebar } from "../../../components/layout/sidebar"
-import { Subscribers } from "../../../components/ui/Subcribers";
-import Subcription from "../../../components/ui/Subcription";
+import { Subscribers } from "../../../components/ui/Subscribers";
+import Subcription from "../../../components/ui/Subscription";
 
 
 export const Subscriptions = () => {

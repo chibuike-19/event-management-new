@@ -80,6 +80,14 @@ export const Events = () => {
   )
 }
 
+export const CheckMarkIcon = () => {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.8992 15.7779L6.06066 11.9394C5.47487 11.3536 4.52513 11.3536 3.93934 11.9394C3.35355 12.5252 3.35355 13.4749 3.93934 14.0607L8.93934 19.0607C9.56304 19.6844 10.5877 19.6379 11.1523 18.9603L21.1523 6.96031C21.6827 6.3239 21.5967 5.37805 20.9603 4.84771C20.3239 4.31736 19.378 4.40335 18.8477 5.03976L9.8992 15.7779Z" fill="#212121" />
+    </svg>
+  )
+}
+
 export const OngoingEvents = () => {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
