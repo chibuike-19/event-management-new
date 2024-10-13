@@ -6,6 +6,9 @@ export default {
       colors: {
         primary: "#099137",
       },
+      width: {
+        "--parentWidth": "80vw",
+      },
     },
   },
   plugins: [],

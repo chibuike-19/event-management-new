@@ -5,6 +5,8 @@ import Navbar from "../../../components/layout/navbar"
 import { Sidebar } from "../../../components/layout/sidebar"
 import WalletCard from "../../../components/ui/WalletCard"
 import { walletCardData } from "../../../data-helpers/client-data"
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "../../../components/ui/Button"
 
 
 export const ClientWallet = () => {
@@ -52,6 +54,7 @@ export const ClientWallet = () => {
             key: "NumberofPeople",
         },
     ]
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -101,9 +104,18 @@ export const ClientWallet = () => {
 
                 <div className="w-[25%] space-y-12">
                     <div className="rounded-2xl border-[#EDEDED] border">
-                        <div className="flex flex-row justify-between px-5 py-5">
+                        <div className="flex flex-row justify-between items-center px-5 py-3">
                             <h2>Subscription</h2>
-                            <ArrowRight />
+                            <div>
+                                <Button
+                                    variant="text"
+                                    label={
+                                        <ArrowRight />
+                                    }
+                                    className="rounded-full"
+                                    onClick={() => navigate("/view-subscription")}
+                                />
+                            </div>
                         </div>
                         <div className="border-b-[#EDEDED] border-y px-5 py-3">
                             <h3 className="text-[#868686] pb-3">Free trail</h3>
